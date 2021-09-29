@@ -1,0 +1,11 @@
+User-Agent: *
+Disallow: 
+Sitemap: https://www.futurestarr.com/sitemap.xml
+User-agent: Gigabot
+Disallow: /
+User-agent: naverbot
+Disallow: /
+User-agent: yeti
+Disallow: /
+
+

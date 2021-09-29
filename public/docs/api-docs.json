@@ -1,0 +1,3903 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "FutureStarr API",
+        "description": "FutureStar API Swagger Documentation. IF you want to use postman just import documetation json file",
+        "contact": {
+            "email": "admin@admin.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/user/login": {
+            "post": {
+                "tags": [
+                    "User Auth"
+                ],
+                "summary": "Login",
+                "description": "Login by email, password",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "five_seller@fiveexceptions.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "Indore@123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "required": [
+                                        "email",
+                                        "password"
+                                    ],
+                                    "properties": {
+                                        "email": {
+                                            "type": "string",
+                                            "format": "email",
+                                            "example": "five_seller@fiveexceptions.com"
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "format": "password",
+                                            "example": "Indore@123"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/user": {
+            "post": {
+                "tags": [
+                    "User Auth"
+                ],
+                "summary": "Register",
+                "description": "Login by email, password",
+                "operationId": "authRegister",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "first_name",
+                                    "last_name",
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "five"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "seller"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "five_seller@fiveexceptions.com"
+                                    },
+                                    "role": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "4"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "Indore@123"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "Indore@123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/logout": {
+            "post": {
+                "tags": [
+                    "User Auth"
+                ],
+                "summary": "Logout",
+                "description": "logout user",
+                "operationId": "authLogout",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/linkedin_register": {
+            "post": {
+                "tags": [
+                    "User Auth"
+                ],
+                "summary": "LinkedIn Register",
+                "description": "Linked In register",
+                "operationId": "authLinkedIn",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "accessToken",
+                                    "provider"
+                                ],
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "AQWvILVcLqJKv1d-jEG67AnaDTrvVuSa7_eLC7HwqiePxIK5UVXUeb92W3rpa1qEFserpbLKUSdYHLEh4WBiuRX3UCfHlsoAacB9DmFPjpA_khIL3hm6Fv-VxxnYRt-woJk_8hBHy5vv4p1hdQ0RLffAZfhwzQuyzghBJyZnIUDzMTN75tZOfsTMrYxIpLLH1iAp6HTlXZuE7DekFKvpS3I7j3oJVQTFI4GCJEfZiGtiviYQ-QnhDVdmaG39RK3FCMr5E15KNcL2A98gG_jiXNd5eBbziVkVZ-bsMvAoEa7-M5MN_EkaQu5SbROQSUOsLj-gYrT-ecixxGlDQI7f55dGqdbLPA"
+                                    },
+                                    "provider": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "linkedin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/facebook_register": {
+            "post": {
+                "tags": [
+                    "User Auth"
+                ],
+                "summary": "Facebook Register",
+                "description": "Facebook In register",
+                "operationId": "authFacebook",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "accessToken",
+                                    "provider"
+                                ],
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "EAACsEhYQps8BAJZBwCuGlUZBZAUXsx373zcwyZCZAm5crjIEmsog4ZB2JnbLC4Q0yeZCqoFKoNNC0yXeUWz7zZAtvVm08TKeHNJ7D9ZA6LZBZBgfL68Eq45Ur14Mp0kcKwt8ssOPWleWiUMZAVRJY96DubRLQfSZC2Yza1cvTdV8c5D0EDJlQO16TmWvum4GiGs4qg5QWoQgXkYN0QEe0K8oTAaGqwrQ36WsrjGz5ldcZCCci9YAZDZD"
+                                    },
+                                    "provider": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "facebook"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/twitter-login": {
+            "post": {
+                "tags": [
+                    "User Auth"
+                ],
+                "summary": "Twitter Register",
+                "description": "Twitter In register",
+                "operationId": "authTwitter",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "accessToken",
+                                    "provider"
+                                ],
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "AAAAAAAAAAAAAAAAAAAAANVzOgAAAAAAPOFq%2BU12Yro9OB1p%2FisGDKT%2BUoI%3DVdPmFEbLI0VZ5nJw1AmxqAgRrpUjgou3x8FXororexw9fLeJmu"
+                                    },
+                                    "provider": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "twitter"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/changePassword": {
+            "post": {
+                "tags": [
+                    "User Auth"
+                ],
+                "summary": "Change Password",
+                "description": "Change Password",
+                "operationId": "authChagePassword",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "current_password",
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "current_password": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "12345678"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "123123123"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "123123123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/reset-password": {
+            "post": {
+                "tags": [
+                    "User Auth"
+                ],
+                "summary": "Reset Password",
+                "description": "Reset Password",
+                "operationId": "authResetPassword",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "current_password",
+                                    "password",
+                                    "token"
+                                ],
+                                "properties": {
+                                    "token": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "d9c16c80f4fe9c85010bb6d7f217582b"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "123123123"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "123123123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/forgot-password": {
+            "post": {
+                "tags": [
+                    "User Auth"
+                ],
+                "summary": "Forgot Password",
+                "description": "Forgot Password",
+                "operationId": "authforgotPassword",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "five@fiveexceptions.com"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/update-role": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Update Role",
+                "description": "Update Role",
+                "operationId": "userUpdateRole",
+                "requestBody": {
+                    "description": "User Role",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "role_id"
+                                ],
+                                "properties": {
+                                    "role_id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "4"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/picture": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Change profile picture",
+                "description": "Change profile picture",
+                "operationId": "userChangeProfilePicture",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "profile_pic": {
+                                        "description": "profile_pic",
+                                        "type": "file",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/info": {
+            "get": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Get User Info",
+                "description": "Get User Info",
+                "operationId": "GetUserInfo",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/manage-public-profile": {
+            "get": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Manage Public Profile",
+                "description": "Manage Public Profile",
+                "operationId": "ManagePublicProfile",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/public-profile/{public_profile_id}/profile": {
+            "get": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Manage Public Profile",
+                "description": "Manage Public Profile",
+                "operationId": "ManagePublicProfile",
+                "parameters": [
+                    {
+                        "name": "public_profile_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "stars-band-f1263317c8d"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/public-profile/buyer-futurestarr-e77a3cadfc4/profile": {
+            "get": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Seller Public Profile",
+                "description": "Seller Public Profile",
+                "operationId": "SellerPublicProfile",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user-account-update": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "User Account Update",
+                "description": "User Account Update",
+                "operationId": "userAccountUpdate",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "first_name",
+                                    "last_name",
+                                    "email",
+                                    "username",
+                                    "bio_information",
+                                    "address",
+                                    "city",
+                                    "state",
+                                    "zip_code",
+                                    "phone"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "BuyerNewUser"
+                                    },
+                                    "bio_information": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Hello, I am buyer. I want to buy somr great talents."
+                                    },
+                                    "first_name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "sam"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "jordan"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "samjordan01@mail.com"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Kolkata"
+                                    },
+                                    "city": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Kolkata"
+                                    },
+                                    "state": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "WestBengal"
+                                    },
+                                    "zip_code": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "123456"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1234568795"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/store-public-profile-image": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Public Profile Store Image",
+                "description": "Public Profile Store Image",
+                "operationId": "PublicProfileStoreImage",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "encode_image": {
+                                        "description": "encode_image",
+                                        "type": "file",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/store-public-profile-bio": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Public Profile Store Bio",
+                "description": "Public Profile Store Bio",
+                "operationId": "PublicProfileStoreBio",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "bio_video": {
+                                        "description": "bio_video",
+                                        "type": "file",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/store-public-profile": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Public Profile Store",
+                "description": "Public Profile Store",
+                "operationId": "PublicProfileStore",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "bio_video",
+                                    "encode_image",
+                                    "bio_info"
+                                ],
+                                "properties": {
+                                    "bio_video": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "userImage/video-bio/dd111e8e45b1d1c8f5110234add58c95.mp4"
+                                    },
+                                    "encode_image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "userImage/banner/c275a9ebf819659dbc8029553c193bea.jpg"
+                                    },
+                                    "bio_info": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Hi"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/follow-user": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Follow User",
+                "description": "Follow User",
+                "operationId": "FollowUser",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "posted_by"
+                                ],
+                                "properties": {
+                                    "posted_by": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "45"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/edit-cover-pic": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Edit Cover Pic",
+                "description": "Edit Cover Pic",
+                "operationId": "EditCoverPic",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "encode_image": {
+                                        "description": "encode_image",
+                                        "type": "file",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/riders?user_id={user_id}&per_page={per_page}&page={page}": {
+            "get": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Get Riders",
+                "description": "Get Riders",
+                "operationId": "GetRiders",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "45"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "10"
+                    },
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/followings?per_page={per_page}&page={page}": {
+            "get": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Get Following",
+                "description": "Get Following",
+                "operationId": "GetFollowing",
+                "parameters": [
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "10"
+                    },
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/unfollow-user/{user_id}": {
+            "get": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Unfollow User",
+                "description": "Unfollow User",
+                "operationId": "Unfollow User",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "45"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/buyer-account/details": {
+            "get": {
+                "tags": [
+                    "Buyer Module"
+                ],
+                "summary": "BuyerAccount",
+                "description": "BuyerAccount",
+                "operationId": "Buyer Account",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/chat-message?user_id={user_id}&per_page={per_page}&page={page}": {
+            "get": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Get all old messages",
+                "description": "Get Message",
+                "operationId": "getChatMessage",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "45"
+                    },
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/chat-refresh?user_id={user_id}&last_msg={last_msg_id}": {
+            "get": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Get current message response",
+                "description": "Get Message Response",
+                "operationId": "getChatMessageResponse",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "45"
+                    },
+                    {
+                        "name": "last_msg_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "156"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/inbox-message?page={page}&per_page={per_page}": {
+            "get": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "get inbox message",
+                "description": "Get Inbox Message",
+                "operationId": "getIndoxMessage",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/getalluser?page={page}&per_page={per_page}": {
+            "get": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "get all user",
+                "description": "Get ALl User",
+                "operationId": "getALlUserMessage",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/getallreaduser?page={page}&per_page={per_page}": {
+            "get": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "get read message",
+                "description": "Get Read Message",
+                "operationId": "getAllReadMessage",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/getallunreaduser?page={page}&per_page={per_page}": {
+            "get": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "get unread message",
+                "description": "Get Unread Message",
+                "operationId": "getUnreadMessage",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/chat-message": {
+            "post": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "sent chat message",
+                "description": "Send Message",
+                "operationId": "sendChatMessage",
+                "parameters": [
+                    {
+                        "name": "received_by",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "45"
+                    },
+                    {
+                        "name": "message",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Text message string"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "message_file": {
+                                        "description": "message_file",
+                                        "type": "file",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/get-all-contact?page={page}&per_page={per_page}": {
+            "get": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Get All Contacts",
+                "description": "Get All Contacts",
+                "operationId": "GetAllContacts",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/delete-message": {
+            "post": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "delete chat message",
+                "description": "delete Message",
+                "operationId": "deleteChatMessage",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "message_id"
+                                ],
+                                "properties": {
+                                    "message_id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "80"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/mass-delete-message": {
+            "post": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "mass delete chat message",
+                "description": "Mass Delete  Message",
+                "operationId": "deleteMassChatMessage",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "message_id"
+                                ],
+                                "properties": {
+                                    "message_id": {
+                                        "type": "object",
+                                        "example": "[80,91]"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/load-latest-messages?user_id=45": {
+            "get": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "load latest chat messages",
+                "description": "load latest chat messages",
+                "operationId": "loadlatestchatmessages",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/fetch-old-messages?old_message_id=50&to_user=45": {
+            "get": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "fetch last chat messages",
+                "description": "fetch last chat messages",
+                "operationId": "fetchlastchatmessages",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/send": {
+            "post": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "sent chat message",
+                "description": "Send Message",
+                "operationId": "sendChat",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "received_by",
+                                    "message"
+                                ],
+                                "properties": {
+                                    "to_user": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "45"
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "send message"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/send/del": {
+            "post": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "delete chat message",
+                "description": "Delete Message",
+                "operationId": "deleteChat",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "received_by",
+                                    "message"
+                                ],
+                                "properties": {
+                                    "user_id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "45"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/autoreply-setting": {
+            "get": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Get Auto Reply Message",
+                "description": "Get Auto Reply Message",
+                "operationId": "GetAutoReplyMessage",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Auto Reply Settings",
+                "description": "Auto Reply Settings",
+                "operationId": "AutoReplySettings",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "auto_reply",
+                                    "message"
+                                ],
+                                "properties": {
+                                    "auto_reply": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1"
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "auto send mesage"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/auto-reply": {
+            "get": {
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Auto Reply Message",
+                "description": "Auto Reply Message",
+                "operationId": "AutoReplyMessage",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/my-product?per_page={per_page}&page={page}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get All Products",
+                "description": "Get All Products",
+                "operationId": "GetAllProducts",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/my-product/{day}?per_page={per_page}&page={page}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get All Products By Day",
+                "description": "Get All Products By Day",
+                "operationId": "GetAllProductsByDay",
+                "parameters": [
+                    {
+                        "name": "day",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/store-product": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Add Product",
+                "description": "Add Product",
+                "operationId": "AddProduct",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "category",
+                                    "title",
+                                    "description",
+                                    "price",
+                                    "product_info",
+                                    "facebookLink",
+                                    "instagramLink",
+                                    "twitterLink",
+                                    "sampleproduct",
+                                    "uploadproduct",
+                                    "commercial"
+                                ],
+                                "properties": {
+                                    "category": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "4"
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Test Product On The Website 376683"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "I am seller who love music. Big fan of legend 2PAC."
+                                    },
+                                    "price": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "134"
+                                    },
+                                    "product_info": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "This is the test product to test on website with all aspects."
+                                    },
+                                    "facebookLink": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "facebook"
+                                    },
+                                    "instagramLink": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "instagram"
+                                    },
+                                    "twitterLink": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "twitter"
+                                    },
+                                    "sampleproduct": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "uploads/seller-video/9dc43ce58950eae7cc8334b188a03035.mp4"
+                                    },
+                                    "uploadproduct": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "uploads/seller-product-media/2372ae989c84bfc96a6b7d4af610e711.pdf"
+                                    },
+                                    "commercial": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "uploads/commercial-product/9b9bbdd280acc21e3fb19de841c48eac.jpg"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/update-product": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Update Product",
+                "description": "Update Product",
+                "operationId": "UpdateProduct",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "talent_id",
+                                    "category",
+                                    "title",
+                                    "description",
+                                    "price",
+                                    "product_info",
+                                    "sampleproduct",
+                                    "uploadproduct",
+                                    "commercial"
+                                ],
+                                "properties": {
+                                    "category": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "4"
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Test Product On The Website 376683"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "I am seller who love music. Big fan of legend 2PAC."
+                                    },
+                                    "price": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "134"
+                                    },
+                                    "product_info": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "This is the test product to test on website with all aspects."
+                                    },
+                                    "talent_id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "talent_id"
+                                    },
+                                    "sampleproduct": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "uploads/seller-video/9dc43ce58950eae7cc8334b188a03035.mp4"
+                                    },
+                                    "uploadproduct": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "uploads/seller-product-media/2372ae989c84bfc96a6b7d4af610e711.pdf"
+                                    },
+                                    "commercial": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "uploads/commercial-product/9b9bbdd280acc21e3fb19de841c48eac.jpg"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/store-product-commercial": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Store Product Commercial",
+                "description": "Store Product Commercial",
+                "operationId": "StoreProductCommercial",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "commercial": {
+                                        "description": "commercial",
+                                        "type": "file",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/store-upload-product": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Store Upload Product",
+                "description": "Store Upload Product",
+                "operationId": "StoreUploadProduct",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "uploadproduct": {
+                                        "description": "uploadproduct",
+                                        "type": "file",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/store-sample-product": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Store Sample Product",
+                "description": "Store Sample Product",
+                "operationId": "StoreSampleProduct",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "sampleproduct": {
+                                        "description": "sampleproduct",
+                                        "type": "file",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/seller-sales": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Get Seller Sale",
+                "description": "Get Seller Sale",
+                "operationId": "GetSellerSale",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/seller-account/details": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Get Seller Account Details",
+                "description": "Get Seller Account Details",
+                "operationId": "GetSellerAccountDetails",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/awards?per_page={per_page}&page={page}": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Get Seller Awards",
+                "description": "Get Seller Awards",
+                "operationId": "GetSellerAwards",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/similar-product-list/{user_profile_id}?per_page={per_page}&page={page}": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Get Similar Product List",
+                "description": "Get Similar Product List",
+                "operationId": "GetSimilarProductList",
+                "parameters": [
+                    {
+                        "name": "user_profile_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "stars-band-f1263317c8d"
+                    },
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/trending-list/{user_profile_id}?per_page={per_page}&page={page}": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Get Trending List",
+                "description": "Get Trending List",
+                "operationId": "GetTrendingList",
+                "parameters": [
+                    {
+                        "name": "user_profile_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "stars-band-f1263317c8d"
+                    },
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/get-deleted-product?day={day}&per_page={per_page}&page={page}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get Deleted Products",
+                "description": "Get Deleted Products",
+                "operationId": "getDeletedProducts",
+                "parameters": [
+                    {
+                        "name": "day",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    },
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/bulk-delete-product": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Bulk Delete Products",
+                "description": "Bulk Delete Products",
+                "operationId": "BulkDeleteProducts",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "talent_id"
+                                ],
+                                "properties": {
+                                    "talent_id": {
+                                        "type": "object",
+                                        "example": "[20,21]"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/recover-deleted-product": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Recover Bulk Delete Products",
+                "description": "Recover Bulk Delete Products",
+                "operationId": "RecoverBulkDeleteProducts",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "talent_id"
+                                ],
+                                "properties": {
+                                    "talent_id": {
+                                        "type": "object",
+                                        "example": "[20,21]"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/deleted-product-permanently": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Permanently Delete Products",
+                "description": "Permanently Delete Products",
+                "operationId": "PermanentlyDeleteProducts",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "talent_id"
+                                ],
+                                "properties": {
+                                    "talent_id": {
+                                        "type": "object",
+                                        "example": "[20,21]"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/seller-commercial-ads": {
+            "get": {
+                "tags": [
+                    "SellerAds"
+                ],
+                "summary": "Get Commercial Ads",
+                "description": "Get Commercial Ads",
+                "operationId": "GetCommercialAds",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/seller-commercial-ad-dashboard": {
+            "get": {
+                "tags": [
+                    "SellerAds"
+                ],
+                "summary": "Get Commercial Ads Dashboard",
+                "description": "Get Commercial Ads Dashboard",
+                "operationId": "GetCommercialAdsDashboard",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/seller-add-commercial-ad": {
+            "get": {
+                "tags": [
+                    "SellerAds"
+                ],
+                "summary": "Add Commercial Ads",
+                "description": "Add Commercial Ads",
+                "operationId": "AddCommercialAds",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/seller-store-commercial-ad": {
+            "post": {
+                "tags": [
+                    "SellerAds"
+                ],
+                "summary": "Store Commercial Ads ( Use on postman)",
+                "description": "Store Commercial Ads",
+                "operationId": "StoreCommercialAds",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "talent_id"
+                                ],
+                                "properties": {
+                                    "banner": {
+                                        "type": "text",
+                                        "example": "image upload"
+                                    },
+                                    "title": {
+                                        "type": "text",
+                                        "example": "Commercial Ad"
+                                    },
+                                    "product": {
+                                        "type": "text",
+                                        "example": "Test Product On The Website 8"
+                                    },
+                                    "product_url": {
+                                        "type": "text",
+                                        "example": "http://ec2-18-224-33-209.us-east-2.compute.amazonaws.com/talent-mall/product-info/eyJpdiI6Inp2RFI3Z2NoT0lqeGZPL1F0VFpwRkE9PSIsInZhbHVlIjoiemFsSE9FUFJJTFlFOEIwcmZXb0lRQT09IiwibWFjIjoiOTc2MmJlZjU3MGEwZGIyYjc3Y2FhOGI5MjJlOGIxZGRhZjhlOTJmOThjODY0MjI0ZWQ5MjQ2ZmNkNTYyYmNlYyJ9"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/seller-product-url?product_id={product_id}": {
+            "get": {
+                "tags": [
+                    "SellerAds"
+                ],
+                "summary": "Get Seller Products URL",
+                "description": "Get Seller Products URL",
+                "operationId": "GetSellerProductsURL",
+                "parameters": [
+                    {
+                        "name": "product_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/seller-store-custom-plan": {
+            "post": {
+                "tags": [
+                    "SellerAds"
+                ],
+                "summary": "Store Custom Plan",
+                "description": "Store Custom Plan",
+                "operationId": "StoreCustomPlan",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "custom_plan"
+                                ],
+                                "properties": {
+                                    "custom_plan": {
+                                        "type": "text",
+                                        "example": "Plan details"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/social-buzz/{category_id}/listing": {
+            "get": {
+                "tags": [
+                    "SocialBuzz"
+                ],
+                "summary": "Get Social Buzz Listing",
+                "description": "Get Social Buzz Listing",
+                "operationId": "GetSocialBuzzListing",
+                "parameters": [
+                    {
+                        "name": "category_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "5"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/social-buzz-comments/{post_id}/listing": {
+            "get": {
+                "tags": [
+                    "SocialBuzz"
+                ],
+                "summary": "Get Social Buzz Listing",
+                "description": "Get Social Buzz Listing",
+                "operationId": "GetSocialBuzzListing",
+                "parameters": [
+                    {
+                        "name": "post_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "243"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/social-buzz-awards/{post_id}/listing": {
+            "get": {
+                "tags": [
+                    "SocialBuzz"
+                ],
+                "summary": "Get Social Buzz Awards",
+                "description": "Get Social Buzz Awards",
+                "operationId": "GetSocialBuzzAwards",
+                "parameters": [
+                    {
+                        "name": "post_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "243"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/social-buzz-product-listing": {
+            "get": {
+                "tags": [
+                    "SocialBuzz"
+                ],
+                "summary": "Get Social Buzz Product Listing",
+                "description": "Get Social Buzz Product Listing",
+                "operationId": "GetSocialBuzzProductListing",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/social-buzz-comment": {
+            "post": {
+                "tags": [
+                    "SocialBuzz"
+                ],
+                "summary": "Post Social Buzz Comments",
+                "description": "Post Social Buzz Comments",
+                "operationId": "PostSocialBuzzComments",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "social_buzz_id"
+                                ],
+                                "properties": {
+                                    "social_buzz_id": {
+                                        "type": "string",
+                                        "format": "integer",
+                                        "example": "243"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/social-buzz-report": {
+            "post": {
+                "tags": [
+                    "SocialBuzz"
+                ],
+                "summary": "SocialBuzz Report",
+                "description": "SocialBuzz Report",
+                "operationId": "SocialBuzzReport",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "social_buzz_id"
+                                ],
+                                "properties": {
+                                    "social_buzz_id": {
+                                        "type": "string",
+                                        "format": "integer",
+                                        "example": "236"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/social-buzz-award": {
+            "post": {
+                "tags": [
+                    "SocialBuzz"
+                ],
+                "summary": "Post SocialBuzz Award",
+                "description": "Post SocialBuzz Award",
+                "operationId": "PostSocialBuzzAward",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "social_buzz_id"
+                                ],
+                                "properties": {
+                                    "social_buzz_id": {
+                                        "type": "string",
+                                        "format": "integer",
+                                        "example": "236"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/create-social-buzz": {
+            "post": {
+                "tags": [
+                    "SocialBuzz"
+                ],
+                "summary": "Create Social Buzz",
+                "description": "Create Social Buzz",
+                "operationId": "CreateSocialBuzz",
+                "parameters": [
+                    {
+                        "name": "social_buzz_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "243"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Test Comment 79"
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "5"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "profile_pic": {
+                                        "description": "profile_pic",
+                                        "type": "file",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/update-social-buzz": {
+            "post": {
+                "tags": [
+                    "SocialBuzz"
+                ],
+                "summary": "Update Social Buzz",
+                "description": "Update Social Buzz",
+                "operationId": "UpdateSocialBuzz",
+                "parameters": [
+                    {
+                        "name": "social_buzz_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "243"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Test Comment 79"
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "5"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "profile_pic": {
+                                        "description": "profile_pic",
+                                        "type": "file",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/categories": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get Categories",
+                "description": "Get Categories",
+                "operationId": "GetCategories",
+                "parameters": [
+                    {
+                        "name": "day",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/futurestarr/marketplace": {
+            "get": {
+                "tags": [
+                    "Marketplace Module"
+                ],
+                "summary": "Future Starr Marketplace",
+                "description": "Future Starr Marketplace",
+                "operationId": "FutureStarrMarketplace",
+                "parameters": [
+                    {
+                        "name": "day",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "2"
+                    },
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "responses": {
+            "401": {
+                "description": "Unauthenticated"
+            },
+            "400": {
+                "description": "Bad Request"
+            },
+            "404": {
+                "description": "not found"
+            },
+            "403": {
+                "description": "Forbidden"
+            }
+        },
+        "securitySchemes": {
+            "bearer": {
+                "type": "http",
+                "description": "Authorization token obtained from logging in.",
+                "name": "Authorization",
+                "in": "header",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
